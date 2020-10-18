@@ -4,26 +4,30 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import database.migrations.CreateTableMusics;
+
 public class ConnectDataBase {
     private Connection connect;
 
+    CreateTableMusics create = new CreateTableMusics();
 
-    public boolean connectDB() {
+    public Connection connectDB() {
 
         try {
 
-            String url = "jdbc:sqlite:banco_de_dados/banco_sqlite.db";
+            String url = "jdbc:sqlite:src/database/jukebox.db";
 
             this.connect = DriverManager.getConnection(url);
 
+            create.tableMusics(url);
+
         } catch (SQLException e) {
-            System.err.println(e.getMessage());
-            return false;
+            throw new Error(e.getMessage());
         }
 
         System.out.println("conectou!!!");
         
-        return true;
+        return this.connect;
     }
 
     public boolean disconnectDB(){
