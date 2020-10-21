@@ -1,4 +1,4 @@
-# JuckBox-Java
+# JukeBox-Java
 
 Esse é o backend de uma jukebox feito em java aplicando alguns conhecimento básicos em Java.
 
