@@ -24,8 +24,6 @@ public class ConnectDataBase {
         } catch (SQLException e) {
             throw new Error(e.getMessage());
         }
-
-        System.out.println("conectou!!!");
         
         return this.connect;
     }

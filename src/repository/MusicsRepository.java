@@ -24,11 +24,11 @@ public class MusicsRepository {
         try{
             Statement stmt  = conn.createStatement();
             musicsCount = stmt.executeQuery(countSql);
-
+            
             while(musicsCount.next()){
                 count = musicsCount.getInt(1);
             }
-            
+
             music.setId(count++);
         } catch(SQLException err){
             System.err.println(err.getMessage());
@@ -36,7 +36,9 @@ public class MusicsRepository {
 
         
 
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)){
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+
             pstmt.setInt(1, music.getId());
             pstmt.setString(2, music.getName());
             pstmt.setString(3, music.getArtist());

@@ -19,8 +19,6 @@ public class CreateTableMusics {
         try (Connection conn = DriverManager.getConnection(url);
                 Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
-
-            System.out.println("Table Created");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
