@@ -85,10 +85,9 @@ public class JukeBox {
                                     System.out.println("Music stoped");
                                     break;
                                 case 2:
-                                    if(musicList.size() == 0){
+                                    if((musicList.size() - 1) < (musicList.indexOf(selectedMusic) + 1)){
                                         System.out.println("No music to play");
                                     } else{
-                                        System.out.println(musicList.size());
                                         selectedMusic = musicList.get(musicList.indexOf(selectedMusic) + 1);
                                     }
                                     break;
